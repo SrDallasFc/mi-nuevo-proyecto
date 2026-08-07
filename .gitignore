@@ -1,0 +1,12 @@
+# Node
+node_modules/
+package-lock.json
+
+# Entorno y variables secretas
+.env
+*.env
+
+# Logs y SO
+*.log
+.DS_Store
+.vscode/
