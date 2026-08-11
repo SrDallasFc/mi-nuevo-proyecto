@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: pc_builder_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_secure_pass
+      MYSQL_DATABASE: pc_builder_db
+      MYSQL_USER: pc_ad
+      MYSQL_PASSWORD: moskitos
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - pc-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pc_builder_pma
+    restart: always
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root_secure_pass
+    ports:
+      - "8080:80"
+    networks:
+      - pc-network
+    depends_on:
+      - db
+
+networks:
+  pc-network:
+    driver: bridge
+
+volumes:
+  db_data:
