@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Builder - Cotizador & Compatibilidad</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>🖥️ PC Builder System</h1>
+    <p>Selecciona tus componentes. Validaremos compatibilidad de sockets, memorias y potencia en tiempo real.</p>
+  </header>
+
+  <main class="main-layout">
+    <!-- Selección de componentes -->
+    <section class="builder-section" id="categories-container">
+      <!-- Carga dinámica de selectores por categoría -->
+    </section>
+
+    <!-- Resumen de Cotización y Compatibilidad -->
+    <aside class="summary-section">
+      <h2>📋 Resumen de Ensamble</h2>
+      
+      <div id="status-box" class="status-box info">
+        Selecciona componentes para empezar a validar.
+      </div>
+
+      <div class="metrics">
+        <p><strong>Consumo Estimado:</strong> <span id="watt-consumption">0</span> W</p>
+        <p><strong>Fuente Seleccionada:</strong> <span id="psu-capacity">0</span> W</p>
+        <h3>Total: $<span id="total-price">0.00</span> MXN</h3>
+      </div>
+
+      <div class="actions">
+        <button id="btn-save" onclick="saveCurrentBuild()" disabled>💾 Guardar Cotización</button>
+      </div>
+    </aside>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
